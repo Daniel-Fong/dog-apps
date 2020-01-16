@@ -8,15 +8,17 @@ function getDogImages(num) {
 }
 
 function displayResults(responseJson) {
-    let template = createTemplate(responseJson[0]);
-    console.log(template);
-    // let results = responseJson.forEach(createTemplate());
-    // return $('.results').append(results);
-    console.log(responseJson);
+        let imgArr = responseJson.message;
+        $('.results').empty();
+        imgArr.forEach(img => {
+          $('.results').append(
+            `<img src="${img}" class="img-result"/>`
+          );
+        });
 }
 
 function createTemplate(url) {
-    return `<img class="dogPic" src="${url}"/>`
+    $('.results').append(`<img class="dogPic" src="${url}"/>`);
 }
 
 function watchForm() {
